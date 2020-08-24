@@ -654,8 +654,8 @@ GitEngine.prototype.validateBranchName = function(name) {
       )
     });
   }
-  if (name.length > 9) {
-    name = name.slice(0, 9);
+  if (name.length > 19) {
+    name = name.slice(0, 19);
     this.command.addWarning(
       intl.str(
         'branch-name-short',
