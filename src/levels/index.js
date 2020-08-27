@@ -1,6 +1,9 @@
 // Each level is part of a "sequence;" levels within
 // a sequence proceed in the order listed here
 exports.levelSequences = {
+  twilio: [
+    require('./twilio/patch').level
+  ], 
   intro: [
     require('./intro/commits').level,
     require('./intro/branching').level,
@@ -53,6 +56,14 @@ exports.levelSequences = {
 
 // there are also cute names and such for sequences
 var sequenceInfo = exports.sequenceInfo = {
+  twilio: {
+    displayName: {
+      'en_US': 'Twilio'
+    },
+    about: {
+      'en_US': 'Making releases'
+    }
+  },
   intro: {
     displayName: {
       'en_US': 'Introduction Sequence',
