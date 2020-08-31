@@ -2,7 +2,8 @@
 // a sequence proceed in the order listed here
 exports.levelSequences = {
   twilio: [
-    require('./twilio/patch').level
+    require('./twilio/patch').level,
+    require('./twilio/major').level
   ], 
   intro: [
     require('./intro/commits').level,
