@@ -8,6 +8,9 @@ exports.level = {
   "hint": {
     "en_US": ""
   },
+  "index": 0,
+  "id": "twilio1",
+  "sequenceName": "twilio",
   "startDialog": {
     "en_US": {
       "childViews": [
@@ -16,6 +19,8 @@ exports.level = {
           "options": {
             "markdowns": [
               "## Public Patch Release",
+              "",
+              "The main difference with the major and minor releases is that <b> we must create patch releases only from the release branches</b>.",
               "",
               "",
               ""
@@ -26,9 +31,7 @@ exports.level = {
           "type": "GitDemonstrationView",
           "options": {
             "beforeMarkdowns": [
-              "## Steps",
-              "",
-              "Press the green button below to see how it should work.",
+              "Let's say we have made release 3.2.0 already and now we make some more commits in the master.",
               "",
               "",
               ""
@@ -36,22 +39,88 @@ exports.level = {
             "afterMarkdowns": [
               "",
               "",
-              "",
               ""
             ],
-            "command": "git commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/1.2;\ngit co jdoe/FLEXSDK-123;\ngit cherry-pick c3;\ngit co releases/1.2;\ngit merge jdoe/FLEXSDK-123;\ngit tag 1.2.1-rc1 releases/1.2;\ngit tag internal-release-1.2.1-rc1 releases/1.2;\ngit tag public-release-1.2.1-rc1 releases/1.2;",
-            "beforeCommand": "git tag 1.2-rc1 master;\ngit branch releases/1.2 1.2-rc1;\ngit tag internal-release-1.2-rc1 releases/1.2;\ngit tag public-release-1.2-rc1 releases/1.2;"
+            "command": "git commit;\ngit commit;\ngit commit;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;"
           }
         },
         {
-          "type": "ModalAlert",
+          "type": "GitDemonstrationView",
           "options": {
-            "markdowns": [
-              "## Now you can try it yourself",
-              "",
-              "",
+            "beforeMarkdowns": [
+              "Create a development branch from the release branch releases/3.2 including the JIRA ticket number [youralias]/FLEXSDK-[ticketnumber]."
+            ],
+            "afterMarkdowns": [
               ""
-            ]
+            ],
+            "command": "git branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Run npm version [major].[version].[PATCH] --no-git-tag to update the version in package.json. Let's visualize this as one more commit c5."
+            ],
+            "afterMarkdowns": [
+              ""
+            ],
+            "command": "git commit;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Cherry pick the commit(s) from the main branch that you want to be included in the patch release. Push the commits to your development branch. c3 is the cherry-picked commit."
+            ],
+            "afterMarkdowns": [
+              ""
+            ],
+            "command": "git cherry-pick c3;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;\ngit commit;"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Update changelog. Let's visualize this as one more commit."
+            ],
+            "afterMarkdowns": [
+              ""
+            ],
+            "command": "git commit;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;\ngit commit;\ngit cherry-pick c3;"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Create a pull request to merge your branch to the release branch releases/3.2. Have it approved and merged."
+            ],
+            "afterMarkdowns": [
+              ""
+            ],
+            "command": "git co releases/3.2;\ngit merge jdoe/FLEXSDK-123;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;\ngit commit;\ngit cherry-pick c3;\ngit commit;"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Go to Github Draft Release, enter 3.2.1-rc1 as tag and choose the release branch (releases/3.2)."
+            ],
+            "afterMarkdowns": [
+              ""
+            ],
+            "command": "git tag 3.2.1-rc1 releases/3.2;",
+            "beforeCommand": "git tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;\ngit tag public-release-3.2.0-rc1 releases/3.2;\ngit commit;\ngit commit;\ngit commit;\ngit branch jdoe/FLEXSDK-123 releases/3.2;\ngit co jdoe/FLEXSDK-123;\ngit commit;\ngit cherry-pick c3;\ngit commit;\ngit co releases/3.2;\ngit merge jdoe/FLEXSDK-123;"
           }
         }
       ]
