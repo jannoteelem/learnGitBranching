@@ -1,6 +1,6 @@
 exports.level = {
-  "goalTreeString": "{\"branches\":{\"master\":{\"target\":\"C3\",\"id\":\"master\",\"remoteTrackingBranchID\":null},\"jdoe/FLEXSDK-123\":{\"target\":\"C3\",\"id\":\"jdoe/FLEXSDK-123\",\"remoteTrackingBranchID\":null},\"releases/3.2\":{\"target\":\"C3\",\"id\":\"releases/3.2\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C3\":{\"parents\":[\"C2\"],\"id\":\"C3\"}},\"tags\":{\"3.2.0-rc1\":{\"target\":\"C3\",\"id\":\"3.2.0-rc1\"},\"internal-release-3.2.0-rc1\":{\"target\":\"C3\",\"id\":\"internal-release-3.2.0-rc1\"},\"public-release-3.2.0\":{\"target\":\"C3\",\"id\":\"public-release-3.2.0\"}},\"HEAD\":{\"target\":\"master\",\"id\":\"HEAD\"}}",
-  "solutionCommand": "git checkout -b jdoe/FLEXSDK-123;git commit;git commit;git checkout master;git merge jdoe/FLEXSDK-123;git tag 3.2.0-rc1 master;git branch releases/3.2 3.2.0-rc1;git tag internal-release-3.2.0-rc1 releases/3.2;git tag public-release-3.2.0 releases/3.2",
+  "goalTreeString": "{\"branches\":{\"master\":{\"target\":\"C3\",\"id\":\"master\",\"remoteTrackingBranchID\":null},\"jdoe/FLEXSDK-123\":{\"target\":\"C3\",\"id\":\"jdoe/FLEXSDK-123\",\"remoteTrackingBranchID\":null},\"releases/3.2\":{\"target\":\"C3\",\"id\":\"releases/3.2\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C3\":{\"parents\":[\"C2\"],\"id\":\"C3\"}},\"tags\":{\"3.2.0-rc1\":{\"target\":\"C3\",\"id\":\"3.2.0-rc1\"},\"internal-release-3.2.0\":{\"target\":\"C3\",\"id\":\"internal-release-3.2.0\"},\"public-release-3.2.0\":{\"target\":\"C3\",\"id\":\"public-release-3.2.0\"}},\"HEAD\":{\"target\":\"master\",\"id\":\"HEAD\"}}",
+  "solutionCommand": "git checkout -b jdoe/FLEXSDK-123;git commit;git commit;git checkout master;git merge jdoe/FLEXSDK-123;git tag 3.2.0-rc1 master;git branch releases/3.2 3.2.0-rc1;git tag internal-release-3.2.0 releases/3.2;git tag public-release-3.2.0 releases/3.2",
   "startTree": "{\"branches\":{\"master\":{\"target\":\"C1\",\"id\":\"master\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"}},\"tags\":{},\"HEAD\":{\"target\":\"master\",\"id\":\"HEAD\"}}",
   "name": {
     "en_US": "Major or Minor Release"
@@ -109,12 +109,12 @@ exports.level = {
           "type": "GitDemonstrationView",
           "options": {
             "beforeMarkdowns": [
-              "Go to Github Draft Release, enter internal-release-3.2.0-rc1 as tag and choose the release branch releases/3.2 "
+              "Go to Github Draft Release, enter internal-release-3.2.0 as tag and choose the release branch releases/3.2 "
             ],
             "afterMarkdowns": [
               " "
             ],
-            "command": "git tag internal-release-3.2.0-rc1 releases/3.2;",
+            "command": "git tag internal-release-3.2.0 releases/3.2;",
             "beforeCommand": "git co -b jdoe/FLEXSDK-123;\ngit commit;\ngit commit;\ngit co master;\ngit merge jdoe/FLEXSDK-123;\ngit tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;"
           }
         },
@@ -128,7 +128,7 @@ exports.level = {
               " "
             ],
             "command": "git tag public-release-3.2.0 releases/3.2;",
-            "beforeCommand": "git co -b jdoe/FLEXSDK-123;\ngit commit;\ngit commit;\ngit co master;\ngit merge jdoe/FLEXSDK-123;\ngit tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0-rc1 releases/3.2;"
+            "beforeCommand": "git co -b jdoe/FLEXSDK-123;\ngit commit;\ngit commit;\ngit co master;\ngit merge jdoe/FLEXSDK-123;\ngit tag 3.2.0-rc1 master;\ngit branch releases/3.2 3.2.0-rc1;\ngit tag internal-release-3.2.0 releases/3.2;"
           }
         },
         {
